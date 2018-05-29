@@ -48,7 +48,7 @@ html, body {
     text-align: center;
     height: 100%;
     color: transparent;
-    background: url('./arrow.svg') no-repeat 0 0;
+    background: url('./../images/arrow.svg') no-repeat 0 0;
     -webkit-transition: -webkit-transform 0.2s;
     -moz-transition: -moz-transform 0.2s;
     transition: transform 0.2s;
@@ -100,7 +100,7 @@ html, body {
 /* Landing View */
 
 .landing_view {
-    background-image: url('./buyritelogo.jpg');
+    background-image: url('./../images/buyritelogo.jpg');
     background-size: cover;
     background-position: center;
     position: fixed;
@@ -179,6 +179,7 @@ html, body {
     height: 95vh;
     width: 100vw;
     position: relative;
+    background-color: white;
 }
 
 .header {
@@ -188,13 +189,13 @@ html, body {
 }
 
 .kitchen {
-    background-image: url('./kitchen.jpg');
+    background-image: url('./../images/kitchen.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .living_room {
-    background: url('./living_room.jpg');
+    background: url('./../images/living_room.jpg');
     background-size: cover;
     background-position: center;
 }
