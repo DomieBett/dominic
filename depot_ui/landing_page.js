@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
     var breakpoints = [
-        $("#about_us").offset().top,
-        $("#services").offset().top,
-        $("#services1").offset().top,
-        $("#services2").offset().top,
-        $("#services3").offset().top,
+        $("#service0").offset().top,
+        $("#service1").offset().top,
+        $("#service2").offset().top,
+        $("#service3").offset().top,
+        $("#service4").offset().top,
     ];
     var breakpoint = 0;
 

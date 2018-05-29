@@ -111,7 +111,7 @@ html, body {
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 30vh;
+    height: 20vh;
     background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));
     z-index: 3 !important;
 }
@@ -173,29 +173,115 @@ html, body {
     z-index: 2 !important;
 }
 
-/* About Us */
-
-.about_us {
-    background: white;
-    height: 85vh;
-}
-
 /* Services */
 
 .services {
-    background: yellow;
-    height: 85vh;
+    height: 95vh;
+    width: 100vw;
+    position: relative;
 }
 
-.services1 {
-    background: blue;
-    height: 85vh;
+.header {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 35px;
 }
-.services2 {
+
+.kitchen {
+    background-image: url('./kitchen.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.living_room {
+    background: url('./living_room.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#service2 {
     background: green;
-    height: 85vh;
 }
-.services3 {
+
+#service3 {
+    background: yellow;
+}
+
+#service4 {
     background: black;
     height: 150vh;
+}
+
+/* Product tip */
+
+.product-tip {
+    list-style-type: none;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    padding: 5px;
+    border: 3px solid rgb(66, 66, 66);
+    transition: 0.3s ease-in-out;
+}
+
+.product-tip:hover {
+    transform: scale(1.05);
+}
+
+.product-tip span {
+    display: block;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: rgb(66, 66, 66);
+}
+
+.refrigerator {
+    top: 500px;
+    left: 230px;
+}
+
+.tips {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 120%;
+    top: 10%;
+    height: auto;
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid rgb(66, 66, 66);
+    padding: 5px;
+    font-size: 13px;
+    background: white;
+    z-index: 23 !important;
+    transition: 0.3s ease-in-out;
+}
+
+.refrigerator:hover #refrigerator-tip {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(.9);
+}
+
+.cooker {
+    top: 600px;
+    left: 600px;
+}
+
+.cooker:hover #cooker-tip {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(.9);
+}
+
+.microwave {
+    top: 350px;
+    left: 600px;
+}
+
+.microwave:hover #microwave-tip {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(.9);
 }
