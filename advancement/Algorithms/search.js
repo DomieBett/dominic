@@ -1,6 +1,6 @@
 /**
  * Linear search is renouned for its simplicity. It is implemented by going
- * through each item in a list sequentially and checking if it is the requested
+ * through each item in a list sequentially and checking if it is the searched
  * item. It is best to use on tiny lists that are not sorted.
  * 
  * @param {any[]} items - array containing items
