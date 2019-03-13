@@ -11,7 +11,9 @@ The linear search algorithm is renounced for its simplicity in its implementatio
 1. The list to be searched is small.
 2. The list is not sorted and will only be used once.
 
-However, when the array is larger, then there is need for a better more faster algorithm. This is where the binary search comes in. The big O notation of this is `O(n)` since the worst case scenario is the total length of the list.
+The big O notation of this is `O(n)` since the worst case scenario is the total length of the list.
+
+However, when the array is larger, then there is need for a better more faster algorithm. This is where the binary search comes in.
 
 ### 2. Binary search algorithm.
 
