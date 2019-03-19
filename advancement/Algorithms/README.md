@@ -48,7 +48,3 @@ It is simplistic and faster than both the selection and insertion sort.
 ### 4. Merge Sort.
 
 This is a form of a divide and conquer sorting algorithm. It works by dividing the array into ints smallest parts then sorts these in pairs combining them until the entire array is merged. It basically breaks the array apart and brings it back together in order.
-
-An excellent demonstration of merge sort can be found here:
-
-[![Merge Sort Demo](http://img.youtube.com/vi/XaqR3G_NVoo/0.jpg)](http://www.youtube.com/watch?v=XaqR3G_NVoo)
