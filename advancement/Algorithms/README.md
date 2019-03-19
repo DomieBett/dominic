@@ -1,5 +1,7 @@
 # Algorithms
 
+An algorithm can be defined as a set of rules to be followed in a problem solving operation.
+
 ## <u>Searching algorithms.</u>
 
 The implementation for the search algorithm can be found in the `search.js` file in this directory.
@@ -41,4 +43,12 @@ Often times, it is faster than bubble sort.
 
 Insertion sort will loop through an array searching moving each individual element back until it is in its right position. It picks an element, and finds its right place within another sorted array. It does this untill all elements have been placed in the right order.
 
-It is simplistic and faster than both the selection and insertion sort. 
+It is simplistic and faster than both the selection and insertion sort.
+
+### 4. Merge Sort.
+
+This is a form of a divide and conquer sorting algorithm. It works by dividing the array into ints smallest parts then sorts these in pairs combining them until the entire array is merged. It basically breaks the array apart and brings it back together in order.
+
+An excellent demonstration of merge sort can be found here:
+
+[![Merge Sort Demo](http://img.youtube.com/vi/XaqR3G_NVoo/0.jpg)](http://www.youtube.com/watch?v=XaqR3G_NVoo)
