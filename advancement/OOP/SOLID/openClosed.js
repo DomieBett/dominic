@@ -37,7 +37,7 @@ class Operations {
  * GOOD
  * 
  * With this, the massAreaCalculator doesnt need any change but
- * can be extended to calculate are of more shapes. All that is
+ * can be extended to calculate area of more shapes. All that is
  * needed is for every shape to have the area method.
  */
 class Square {
