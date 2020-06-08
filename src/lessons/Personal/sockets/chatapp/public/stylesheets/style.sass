@@ -1,0 +1,76 @@
+*
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  
+body
+  padding: 0px
+  margin: 0px
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+
+  #container
+    background-color: white
+    margin: 0px
+    padding: 0px
+    height: 100%
+    width: 100%
+
+    #messageBox
+      position: absolute
+      display: flex
+      flex-flow: row no-wrap
+      bottom: 50px
+      left: 0
+      width: 100%
+      height: auto
+
+    label
+      display: flex
+      flex-flow: row no-wrap
+      justify-content: space-around
+      margin-right: 5%;
+      width: 70%;
+      
+      span
+        padding: 10px;
+
+      input[type="text"]
+        height: 30px
+        flex: 1;
+        font-size: 
+        border-width: 0 0 3px 0
+        border-color: green
+        padding-left: 10px
+
+    input[type="button"]
+      padding: 5px;
+      display: block;
+      width: 20%
+      background-color: green;
+      color: white;
+
+    #username-change
+      display: flex
+      flex-flow: row no-wrap
+      width: 50%;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+
+    #chatroom
+      padding-left: 15px
+
+    .pre-username
+      #chatroom, #messageBox
+        display: none
+      #username-change
+        left: 50%
+        top: 50%
+        transform: translate(-50%)
+
+    .post-username
+      #chatroom
+        display: block
+      #messageBox
+        display: flex
+      #username-change
+        right: 10px;
+        top: 10px;
