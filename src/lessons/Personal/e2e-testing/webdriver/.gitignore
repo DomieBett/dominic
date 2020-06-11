@@ -1,0 +1,6 @@
+.DS_Store
+Results
+_results_
+allure-report
+allure-results
+node_modules
