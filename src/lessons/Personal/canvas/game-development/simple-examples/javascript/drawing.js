@@ -61,22 +61,10 @@ function drawPacman(ctx, x, y, radius, open = 1) {
 function drawShip(ctx, radius, options = {}) {
     options = options || {};
     let angle = (options.angle || 0.5 * Math.PI) / 2;
-    let curve = options.curve || 0.5;
+    let sideCurve = options.sideCurve || 0.75;
+    let backCurve = options.backCurve || 0.75;
 
     ctx.save();
-
-    if(options.guide) {
-        ctx.strokeStyle = 'white';
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
-        ctx.lineWidth = 0.5;
-
-        ctx.beginPath();
-        ctx.arc(0, 0, radius, 0, Math.PI * 2);
-
-        ctx.stroke();
-        ctx.fill();
-    }
-
     ctx.lineWidth = options.lineWidth || 2;
     ctx.strokeStyle = options.stroke || 'white';
     ctx.fillStyle = options.fill || 'black';
@@ -84,35 +72,74 @@ function drawShip(ctx, radius, options = {}) {
     ctx.beginPath();
     // move to front of ship
     ctx.moveTo(radius, 0);
-    // line to right corner of the ship's back
-    ctx.lineTo(
+    // draw right side of the ship
+    ctx.quadraticCurveTo(
+        Math.cos(angle) * radius * sideCurve,
+        Math.sin(angle) * radius * sideCurve,
         Math.cos(Math.PI - angle) * radius,
         Math.sin(Math.PI - angle) * radius
     )
-    // back of the ship
+    // draw back of the ship
     ctx.quadraticCurveTo(
-        radius * curve - radius, 0,
+        -radius * backCurve, 0,
         Math.cos(Math.PI + angle) * radius,
         Math.sin(Math.PI + angle) * radius
     );
-    // close out the line on left of ship
-    ctx.closePath();
+    // draw left side of the ship
+    ctx.quadraticCurveTo(
+        Math.cos(-angle) * radius * sideCurve,
+        Math.sin(-angle) * radius * sideCurve,
+        radius, 0
+    );
 
     ctx.fill();
     ctx.stroke();
 
-    // guide for the quadratic curve.
+    // guide for quadratic curves.
     if (options.guide) {
-        ctx.strokeStyle = 'white';
-        ctx.lineWidh = 0.5;
-        ctx.beginPath();
-        ctx.moveTo(-radius, 0);
-        ctx.lineTo(0, 0);
-        ctx.stroke();
 
-        ctx.beginPath();
-        ctx.arc(radius * curve - radius, 0, radius/50, 0, Math.PI * 2);
-        ctx.stroke();
+        drawCircleGuide(ctx, radius);
+        // for back of the ship
+        drawQuadraticGuide(ctx, radius, backCurve, Math.PI);
+        // for right side
+        drawQuadraticGuide(ctx, radius, sideCurve, angle);
+        // for the left side
+        drawQuadraticGuide(ctx, radius, sideCurve, -angle);
     }
+    ctx.restore();
+}
+
+function drawQuadraticGuide(ctx, radius, curve = 0.5, angle = 0, options = {}) {
+    ctx.save();
+
+    ctx.lineWidth = options.lineWidth || 0.5;
+    ctx.strokeStyle = options.strokeStyle || 'white';
+
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(Math.cos(angle) * radius, Math.sin(angle) * radius);
+    ctx.stroke();
+
+    ctx.arc(
+        Math.cos(angle) * radius * curve,
+        Math.sin(angle) * radius * curve,
+        radius/50,
+        0, Math.PI * 2
+    );
+    ctx.stroke();
+
+    ctx.restore();
+}
+
+function drawCircleGuide(ctx, radius, options = {}) {
+    ctx.save();
+
+    ctx.lineWidth = options.lineWidth || 0.5;
+    ctx.strokeStyle = options.strokeStyle || 'white';
+
+    ctx.beginPath();
+    ctx.arc(0, 0, radius, 0, Math.PI * 2);
+    ctx.stroke();
+
     ctx.restore();
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="./javascript/drawing.js"></script>
 </head>
+
 <body>
     <canvas id="asteroids" width="400" height="400"></canvas>
     <canvas id="curve" width="400" height="400"></canvas>
@@ -21,28 +23,36 @@
         let x, y, angle = 0;
         let w = context.canvas.width, h = context.canvas.height;
 
-        for (y = h/20; y < h; y += h/10) {
-            for (x = w/20; x < w; x += w/10) {
+        for (y = h / 20; y < h; y += h / 10) {
+            for (x = w / 20; x < w; x += w / 10) {
                 context.save();
 
                 context.translate(x, y);
                 context.rotate(angle);
-                drawShip(context, w/30, { guide: true, lineWidth: 1 });
-                
+                drawShip(context, w / 30, { guide: true, lineWidth: 1 });
+
                 context.restore();
 
                 angle = (angle + 0.0075 * Math.PI);
             }
         }
 
+
+        // second canvas
         const context2 = document.getElementById('curve').getContext('2d');
-        
+
         drawGrid(context2);
-        context2.save();
-        context2.translate(context2.canvas.width / 2, context2.canvas.height / 2);
-        context2.rotate(0.25 * Math.PI);
-        drawShip(context2, 150, { curve: Math.random(), guide: true });
-        context2.restore();
+
+        for (let y = h / 10; y < h; y += h / 5) {
+            for (let x = w / 10; x < w; x += w / 5) {
+                context2.save();
+                context2.translate(x, y);
+                context2.rotate(-Math.PI / 2)
+                drawShip(context2, w/15, { sideCurve: Math.random(), backCurve: Math.random(), guide: true });
+                context2.restore();
+            }
+        }
     </script>
 </body>
+
 </html>
