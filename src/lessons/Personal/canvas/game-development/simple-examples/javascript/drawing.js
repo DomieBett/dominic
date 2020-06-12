@@ -57,3 +57,62 @@ function drawPacman(ctx, x, y, radius, open = 1) {
 
     ctx.restore();
 }
+
+function drawShip(ctx, radius, options = {}) {
+    options = options || {};
+    let angle = (options.angle || 0.5 * Math.PI) / 2;
+    let curve = options.curve || 0.5;
+
+    ctx.save();
+
+    if(options.guide) {
+        ctx.strokeStyle = 'white';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+        ctx.lineWidth = 0.5;
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, Math.PI * 2);
+
+        ctx.stroke();
+        ctx.fill();
+    }
+
+    ctx.lineWidth = options.lineWidth || 2;
+    ctx.strokeStyle = options.stroke || 'white';
+    ctx.fillStyle = options.fill || 'black';
+
+    ctx.beginPath();
+    // move to front of ship
+    ctx.moveTo(radius, 0);
+    // line to right corner of the ship's back
+    ctx.lineTo(
+        Math.cos(Math.PI - angle) * radius,
+        Math.sin(Math.PI - angle) * radius
+    )
+    // back of the ship
+    ctx.quadraticCurveTo(
+        radius * curve - radius, 0,
+        Math.cos(Math.PI + angle) * radius,
+        Math.sin(Math.PI + angle) * radius
+    );
+    // close out the line on left of ship
+    ctx.closePath();
+
+    ctx.fill();
+    ctx.stroke();
+
+    // guide for the quadratic curve.
+    if (options.guide) {
+        ctx.strokeStyle = 'white';
+        ctx.lineWidh = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(-radius, 0);
+        ctx.lineTo(0, 0);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(radius * curve - radius, 0, radius/50, 0, Math.PI * 2);
+        ctx.stroke();
+    }
+    ctx.restore();
+}
