@@ -4,7 +4,7 @@ function drawGrid(ctx, minor, major, stroke, fill, label = true) {
     major = major || minor * 5;
     stroke = stroke || 'green';
     fill = fill || 'white';
-    
+
     ctx.save();
     ctx.strokeStyle = stroke;
     ctx.fillStyle = fill;
@@ -36,20 +36,18 @@ function drawGrid(ctx, minor, major, stroke, fill, label = true) {
     ctx.restore();
 }
 
-function drawPacman(ctx, x, y, radius, open = 1) {
-    x = x || 200;
-    y = y || 200;
+function drawPacman(ctx, radius, mouth = 1) {
     radius = radius || 100;
 
     ctx.save();
     ctx.fillStyle = 'yellow';
 
-    const start = open/2;
-    const end = (Math.PI * 2) - (open / 2);
+    const start = mouth / 2;
+    const end = (Math.PI * 2) - (mouth / 2);
 
     ctx.beginPath();
-    ctx.arc(x, y, radius, start, end);
-    ctx.lineTo(x, y);
+    ctx.arc(0, 0, radius, start, end);
+    ctx.lineTo(0, 0);
     ctx.closePath();
 
     ctx.stroke();
@@ -109,6 +107,40 @@ function drawShip(ctx, radius, options = {}) {
     ctx.restore();
 }
 
+function drawAsteroid(ctx, radius, shape, options = {}) {
+    ctx.save();
+
+    ctx.strokeStyle = options.stroke || 'white';
+    ctx.fillStyle = options.fill || 'black';
+    options.noise = options.noise || 0;
+
+    ctx.beginPath();
+    for (let i = 0; i < shape.length; i++) {
+        ctx.rotate(2 * Math.PI / shape.length);
+        ctx.lineTo(radius + radius * options.noise * shape[i], 0);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    if (options.guide) {
+        drawCircleGuide(ctx, radius);
+        drawCircleGuide(ctx, radius + radius * options.noise * 0.5, { lineWidth: 0.3 });
+        drawCircleGuide(ctx, radius + radius * options.noise * -0.5, { lineWidth: 0.3 });
+    }
+
+    ctx.restore();
+}
+
+function createAsteroidShape(segments) {
+    var shape = [];
+    for (let i = 0; i < segments; i++) {
+        shape.push(Math.random() - 0.5);
+    }
+
+    return shape;
+}
+
 function drawQuadraticGuide(ctx, radius, curve = 0.5, angle = 0, options = {}) {
     ctx.save();
 
@@ -123,7 +155,7 @@ function drawQuadraticGuide(ctx, radius, curve = 0.5, angle = 0, options = {}) {
     ctx.arc(
         Math.cos(angle) * radius * curve,
         Math.sin(angle) * radius * curve,
-        radius/50,
+        radius / 50,
         0, Math.PI * 2
     );
     ctx.stroke();
