@@ -52,7 +52,7 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 2,
         //
         browserName: 'chrome',
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -126,18 +126,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: [
-        [video, {
-          saveAllVideos: true,       // If true, also saves videos for successful test cases
-          videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
-        }],
-        ['allure', {
-          outputDir: './_results_/allure-raw',
-          disableWebdriverStepsReporting: true,
-          disableWebdriverScreenshotsReporting: true,
-          useCucumberStepReporter: true
-        }],
-      ],
+    reporters: ['spec', 'dot'],
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.

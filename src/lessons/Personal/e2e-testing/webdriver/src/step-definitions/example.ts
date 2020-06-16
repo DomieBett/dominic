@@ -1,18 +1,17 @@
 import { Given, When, Then } from 'cucumber';
 import { should } from 'chai';
-import * as assert from 'assert';
 
 should();
 
-Given('today is Monday', async () => {
+Given('This is an example', async () => {
     await browser.url('https://www.google.com');
 });
 
-When('I ask whether its Friday yet', async () => {
-    await (await $('.gLFyf')).setValue('hello');
+When('I start trying out this example', async  () => {
+    await (await $('.gLFyf')).setValue('example');
     await browser.keys("\uE007");
 });
 
-Then('I should be told {string}', async (string: any) => {
-    (await browser.getTitle()).should.equal('hello - Google Search - wrong');
+Then('I should find that it works', async () => {
+    (await browser.getTitle()).should.equal('example - Google Search');
 });
