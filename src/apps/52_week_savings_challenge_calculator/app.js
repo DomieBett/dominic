@@ -1,4 +1,4 @@
-const YEAR = 2019;
+const YEAR = 2020;
 const oneWeekMs = 1000 * 60 * 60 * 24 * 7;
 const firstJanuary = new Date(YEAR, 0, 1);
 const firstJanuaryMs = firstJanuary.getTime();
