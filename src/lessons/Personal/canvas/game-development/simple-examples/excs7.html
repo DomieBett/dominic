@@ -12,14 +12,14 @@
     <script>
         const context = document.getElementById('asteroids').getContext('2d');
 
-        let segments = 24;
-        let shape = createAsteroidShape(segments);
         let radius = 50;
         let noise = 0.2;
+        let segments = 24;
+        let shape = createAsteroidShape(segments);
 
         //asteroid state.
         let x = context.canvas.width * Math.random();
-        let y = context.canvas.width * Math.random();
+        let y = context.canvas.height * Math.random();
         let angle = 0;
 
         // asteroid movement
