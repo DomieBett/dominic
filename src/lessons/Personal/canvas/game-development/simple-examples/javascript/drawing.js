@@ -132,7 +132,7 @@ function drawAsteroid(ctx, radius, shape, options = {}) {
     ctx.restore();
 }
 
-function createAsteroidShape(segments) {
+function randomAsteroidShape(segments) {
     var shape = [];
     for (let i = 0; i < segments; i++) {
         shape.push(Math.random() - 0.5);
