@@ -1,0 +1,20 @@
+.Arrow {
+    position: absolute;
+    padding: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+}
+
+.Arrow:hover {
+    transform: scale(1.05) translateY(-50%);
+}
+
+.Arrow.LeftArrow {
+    left: 20%;
+}
+
+.Arrow.RightArrow {
+    right: 20%;
+}

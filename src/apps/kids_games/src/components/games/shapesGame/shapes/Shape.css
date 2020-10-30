@@ -1,0 +1,28 @@
+.Shape {
+    display: none;
+    transition: 1s ease-in-out;
+}
+
+.Shape.active {
+    display: block;
+}
+
+.Shape.circle {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.Shape.square {
+    height: 200px;
+    width: 200px;
+    background-color: purple;
+}
+
+.Shape.oval {
+    height: 120px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: orange;
+}

@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import Home from './components/home/Home';
 import SongsDashboard from './components/dashboards/songs/SongsDashboard';
-import ShapesGame from './components/dashboards/games/shapes/ShapesGame';
+import ShapesGame from './components/games/shapesGame/ShapesGame';
 
 function App() {
   return (

@@ -1,0 +1,20 @@
+.ShapeGameContainer {
+    padding: 20px;
+}
+
+.ShapeContainer {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ShapeContainer .shapeName {
+    position: absolute;
+    display: block;
+    width: 100%;
+    text-align: center;
+    top: 120%;
+    font-size: 30px;
+}
