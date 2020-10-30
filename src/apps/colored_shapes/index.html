@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"
+        integrity="sha512-iNuMM5cmiXDvk4VCTp6UEbDwYy/dA3CFTTYKB6/V+LD62S58TQZ+sykXzhmVT1QvqHD39ZhecsPGXjZUaIuSWQ=="
+        crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -26,7 +29,13 @@
         </div>
     </div>
 
+    <div class="speech-recognition-container">
+        <button id="speak">Speak</button>
+        <div id="query"></div>
+    </div>
+
     <script src="./index.js"></script>
+    <script src="./speechRecog.js"></script>
 </body>
 
 </html>

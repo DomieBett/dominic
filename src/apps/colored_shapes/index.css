@@ -97,3 +97,61 @@ button#pause {
     border-style: double;
     border-width: 0px 0 0px 60px;
 }
+
+.speech-recognition-container {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+}
+
+#query {
+    font-family: 'Merienda', cursive;
+}
+
+#speak {
+    display: block;
+    margin: 10px auto;
+    border: none;
+    padding: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px;
+    background-color: green;
+    color: white;
+    outline: 0;
+}
+
+button {
+    outline: 0;
+}
+
+#speak.active {
+    border: 1px solid green;
+    background-color: white;
+    color: green;
+    animation: pulse;
+    animation-duration: 1.0s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+
+@keyframes pulse {
+    0% {
+        border-style: solid;
+        transform: scale(1);
+    }
+
+    50% {
+        border-style: double;
+    }
+
+    100% {
+        border-style: double;
+        transform: scale(1.1);
+    }
+}

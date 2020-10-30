@@ -115,8 +115,8 @@ function createTriangle(width) {
     shape.name = 'triangle';
     shape.element.classList.add(shape.name);
     shape.element.style.borderTop = `${0}px solid transparent`;
-    shape.element.style.borderRight = `${width/2}px solid transparent`;
-    shape.element.style.borderLeft = `${width/2}px solid transparent`;
+    shape.element.style.borderRight = `${width / 2}px solid transparent`;
+    shape.element.style.borderLeft = `${width / 2}px solid transparent`;
     shape.element.style.borderBottom = `${width}px solid ${shape.color}`;
 
     return shape;
@@ -264,3 +264,4 @@ function setUpEventListeners() {
 setUpEventListeners();
 displayCurrentShape();
 // displayAndSpeakCurrentShape();
+
