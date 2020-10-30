@@ -1,0 +1,85 @@
+.Navbar {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: rgba(255, 192, 203, 0.2);
+}
+
+.Navbar .logo a {
+    margin: 0;
+    padding: 0px 0px 0px 20px;
+    max-height: 60px;
+}
+
+.Navbar .logo a img {
+    max-height: 60px;
+    margin: 0;
+}
+
+.Navbar .avatar {
+    padding: 0px 20px 0px 0px;
+}
+
+.Navbar .avatar img {
+    max-height: 60px;
+}
+
+.Navbar .links {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.Navbar li {
+    list-style-type: none;
+    padding: none;
+    margin: none;
+}
+
+.Navbar .links .link a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    transition: 300ms ease-in;
+    transform: skew(-20deg);
+    box-sizing: border-box;
+}
+
+.Navbar .links .link a.active {
+    border-bottom: 5px solid maroon;
+}
+
+.Navbar .links .link a:hover,
+.Navbar .links .link a.active {
+    transform: skew(-20deg) scale(1.03);
+}
+
+.Navbar .links .link:nth-child(1) a {
+    background-color: purple;
+    color: white;
+}
+
+.Navbar .links .link:nth-child(1) a:hover,
+.Navbar .links .link:nth-child(1) a.active {
+    background-color: red;
+}
+
+.Navbar .links .link:nth-child(2) a {
+    background-color: rgb(0, 102, 255);
+    color: white;
+}
+
+.Navbar .links .link:nth-child(2) a:hover,
+.Navbar .links .link:nth-child(2) a.active {
+    background-color: greenyellow;
+    color: black;
+}

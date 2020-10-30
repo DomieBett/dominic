@@ -1,0 +1,39 @@
+.ShapesCard {
+    display: inline-block;
+}
+
+.ShapesCard .card-thumbnail {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+.ShapesCard .card-thumbnail .shape {
+    display: inline-block;
+}
+
+.ShapesCard .card-thumbnail .square {
+    height: 50px;
+    width: 50px;
+    background-color: crimson;
+}
+
+.ShapesCard .card-thumbnail .circle {
+    height: 50px;
+    width: 50px;
+    margin-left: 0px;
+    background-color: darkmagenta;
+    border-radius: 50%;
+}
+
+.ShapesCard .card-thumbnail .triangle {
+    background: none;
+    box-sizing: border-box;
+    height: 0;
+    width: 0;
+    border-bottom: 50px solid greenyellow;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    margin-left: -70px;
+    margin-top: 40px;
+}

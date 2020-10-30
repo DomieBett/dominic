@@ -1,0 +1,25 @@
+.Card {
+    display: flex;
+    min-width: 100px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.3);
+    padding: 50px;
+    transition: 100ms ease-in;
+}
+
+.Card .cardHeader {
+    text-align: center;
+}
+
+.Card .cardContent {
+    display: inline-block;
+}
+
+.Card .cardContent .cardThumbNail {
+    display: inline-block;
+}
+
+.Card:hover {
+    transform: scale(1.05);
+}
