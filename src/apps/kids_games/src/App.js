@@ -1,15 +1,13 @@
-import GamesDashboard from './components/dashboards/games/GamesDashboard';
-import './App.css';
-import Navbar from './components/navbar/Navbar';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Route, Switch
 } from 'react-router-dom';
-import Home from './components/home/Home';
+import './App.css';
+import GamesDashboard from './components/dashboards/games/GamesDashboard';
 import SongsDashboard from './components/dashboards/songs/SongsDashboard';
 import ShapesGame from './components/games/shapesGame/ShapesGame';
+import Home from './components/home/Home';
+import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 .ShapesCard {
     display: inline-block;
+    cursor: pointer;
 }
 
 .ShapesCard .card-thumbnail {

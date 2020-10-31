@@ -3,11 +3,12 @@ import './Shape.css';
 
 class Shape extends React.Component {
     render() {
+        const shape = this.props.shape(this.props.currentColor);
+
         return (
-            <div className={`${this.props.index === this.props.activeIndex ? 'Shape active' : 'Shape'} ${this.props.shape}`}>
-                {
-                    this.props.displayName ? <span className='shapeName'>{this.props.shape}</span> : ''
-                }
+            <div
+                style={shape.style}
+                className={`Shape ${shape.name} ${this.props.index === this.props.activeIndex ? 'active' : ''}`}>
             </div>
         );
     }
