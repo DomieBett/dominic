@@ -17,11 +17,40 @@ class ShapesGame extends React.Component {
         this.gotoShape = this.gotoShape.bind(this);
         this.gotoPreviousShape = this.gotoPreviousShape.bind(this);
         this.gotoNextShape = this.gotoNextShape.bind(this);
+        this.handleKeyboardClicks = this.handleKeyboardClicks.bind(this);
 
         this.state = {
             activeIndex: 0,
             currentColor: getRandomColor()
         }
+    }
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyboardClicks);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyboardClicks);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.activeIndex !== prevState.activeIndex) {
+            window.speechSynthesis.cancel();
+
+            const shape = shapes[this.state.activeIndex]();
+
+            const message = new SpeechSynthesisUtterance();
+            message.text = `This ${shape.name} is ${this.state.currentColor}`;
+
+            window.speechSynthesis.speak(message);
+        }
+    }
+
+    handleKeyboardClicks(event) {
+        if (event.key === 'ArrowRight')
+            this.gotoNextShape(event);
+        else if (event.key === 'ArrowLeft')
+            this.gotoPreviousShape(event);
     }
 
     gotoNextShape(e) {
