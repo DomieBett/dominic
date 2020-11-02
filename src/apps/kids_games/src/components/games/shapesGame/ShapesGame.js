@@ -1,6 +1,7 @@
 import React from 'react';
 import { populateShapesData } from '../../../data/ShapesData';
 import { getRandomColor } from '../../../utils/Color';
+import { Speech } from '../../../utils/Speech';
 import LeftArrow from './arrows/LeftArrow';
 import RightArrow from './arrows/RightArrow';
 import Shape from './shapes/Shape';
@@ -35,14 +36,11 @@ class ShapesGame extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.activeIndex !== prevState.activeIndex) {
-            window.speechSynthesis.cancel();
-
             const shape = shapes[this.state.activeIndex]();
 
-            const message = new SpeechSynthesisUtterance();
-            message.text = `This ${shape.name} is ${this.state.currentColor}`;
+            const speech = `This ${shape.name} is ${this.state.currentColor}`;
 
-            window.speechSynthesis.speak(message);
+            Speech.speak(speech);
         }
     }
 
@@ -95,6 +93,7 @@ class ShapesGame extends React.Component {
     render() {
         return (
             <div className="ShapeGameContainer">
+                <h3>Shapes</h3>
                 <div className="ArrowContainer">
                     <LeftArrow onClick={e => this.gotoPreviousShape(e)}></LeftArrow>
                     <RightArrow onClick={e => this.gotoNextShape(e)}></RightArrow>
@@ -102,6 +101,7 @@ class ShapesGame extends React.Component {
                 <div style={{ maxWidth: shapeSize }} className="ShapeContainer">
                     {shapes.map((shape, index) => {
                         return <Shape
+                            key={index}
                             shape={shape}
                             activeIndex={this.state.activeIndex}
                             currentColor={this.state.currentColor}

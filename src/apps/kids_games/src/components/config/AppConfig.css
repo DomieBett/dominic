@@ -1,0 +1,13 @@
+.AppConfig {
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row nowrap;
+    width: 150px;
+}
+
+.AppConfig .Config {
+    width: 30%;
+    text-align: center;
+}

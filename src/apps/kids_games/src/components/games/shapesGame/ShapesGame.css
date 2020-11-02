@@ -2,6 +2,17 @@
     padding: 20px;
 }
 
+.ShapeGameContainer h3 {
+    display: inline-block;
+    max-width: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 5px solid green;
+}
+
 .ShapeContainer {
     display: inline-block;
     position: absolute;

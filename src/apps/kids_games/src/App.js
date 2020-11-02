@@ -3,6 +3,7 @@ import {
   Route, Switch
 } from 'react-router-dom';
 import './App.css';
+import AppConfig from './components/config/AppConfig';
 import GamesDashboard from './components/dashboards/games/GamesDashboard';
 import SongsDashboard from './components/dashboards/songs/SongsDashboard';
 import ShapesGame from './components/games/shapesGame/ShapesGame';
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar></Navbar>
+        <AppConfig></AppConfig>
 
         <Switch>
           <Route exact path="/games" component={GamesDashboard}></Route>
