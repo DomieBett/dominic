@@ -60,8 +60,8 @@ class AppConfig extends React.Component {
         return (
             <div className="AppConfig">
                 <SoundConfig onClick={e => this.toggleSoundMute()} isMuted={this.state.isMuted}></SoundConfig>
-                <FocusModeConfig onClick={e => this.toggleFocusMode()} isInFocusMode={this.state.isInFocusMode}></FocusModeConfig>
-                <SettingsConfig></SettingsConfig>
+                {/* <FocusModeConfig onClick={e => this.toggleFocusMode()} isInFocusMode={this.state.isInFocusMode}></FocusModeConfig> */}
+                {/* <SettingsConfig></SettingsConfig> */}
             </div>
         );
     }

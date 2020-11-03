@@ -5,9 +5,16 @@
     justify-content: space-around;
     flex-flow: row nowrap;
     width: 150px;
+    overflow: hidden;
 }
 
 .AppConfig .Config {
     width: 30%;
     text-align: center;
+    transition: 100ms ease-in;
+    cursor: pointer;
+}
+
+.AppConfig .Config:hover {
+    transform: scale(1.2);
 }

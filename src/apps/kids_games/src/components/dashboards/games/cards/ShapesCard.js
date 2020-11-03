@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../../shared/Card';
-import './ShapesCard.css';
+import Card from '../../../shared/Card';
+import './ShapesCard.scss';
 
 class ShapesCard extends React.Component {
     render() {

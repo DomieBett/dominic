@@ -1,0 +1,59 @@
+$cursorColor: black;
+$cursorSize: 20px;
+
+.SelectTheShapeCard {
+    .card-thumbnail {
+        position: relative;
+
+        .cursor {
+            position: absolute;
+            top: 60px;
+            left: 40%;
+            transform: translateX(-50%);
+            border-left: calc(#{$cursorSize}/2) solid transparent;
+            border-right: calc(#{$cursorSize}/2) solid transparent;
+            border-bottom: $cursorSize solid $cursorColor;
+            width: 0;
+            height: 0;
+            background: none;
+            transform: rotate(-40deg);
+            transform-origin: 0% 0%;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 10px;
+                top: calc(100% + #{$cursorSize});
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: $cursorColor;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: -15px;
+                left: -15px;
+                display: block;
+                width: 30px;
+                height: 30px;
+                padding: 0;
+                margin: 0;
+                border: 1px dotted black;
+                border-radius: 50%;
+                background: none;
+            }
+        }
+
+        .shape.square {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            background-color: greenyellow;
+        }
+    }
+}

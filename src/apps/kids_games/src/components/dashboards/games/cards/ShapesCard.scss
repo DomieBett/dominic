@@ -1,3 +1,6 @@
+$shapeSize: 50px;
+$triangleTransparentWidth: 25px;
+
 .ShapesCard {
     display: inline-block;
     cursor: pointer;
@@ -10,18 +13,21 @@
 }
 
 .ShapesCard .card-thumbnail .shape {
-    display: inline-block;
+    position: absolute;
+    top: 55px;
 }
 
 .ShapesCard .card-thumbnail .square {
-    height: 50px;
-    width: 50px;
+    left: 15px;
+    height: $shapeSize;
+    width: $shapeSize;
     background-color: crimson;
 }
 
 .ShapesCard .card-thumbnail .circle {
-    height: 50px;
-    width: 50px;
+    right: 15px;
+    height: $shapeSize;
+    width: $shapeSize;
     margin-left: 0px;
     background-color: darkmagenta;
     border-radius: 50%;
@@ -32,9 +38,9 @@
     box-sizing: border-box;
     height: 0;
     width: 0;
-    border-bottom: 50px solid greenyellow;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    margin-left: -70px;
-    margin-top: 40px;
+    border-bottom: $shapeSize solid greenyellow;
+    border-left: $triangleTransparentWidth solid transparent;
+    border-right: $triangleTransparentWidth solid transparent;
+    left: 50%;
+    transform: translateX(-50%);
 }
