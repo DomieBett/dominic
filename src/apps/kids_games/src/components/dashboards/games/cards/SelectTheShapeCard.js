@@ -17,4 +17,6 @@ class SelectTheShapeCard extends React.Component {
     }
 }
 
+const prom = new Promise(() => 'string');
+
 export default SelectTheShapeCard;

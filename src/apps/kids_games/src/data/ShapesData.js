@@ -1,4 +1,4 @@
-export const populateShapesData = (size) => {
+export const populateShapesData = (size = 200) => {
     const defaultColor = 'black';
 
     return [
@@ -18,8 +18,8 @@ export const populateShapesData = (size) => {
                 name: 'rectangle',
                 color,
                 style: {
-                    height: size * 3 / 4,
-                    width: size,
+                    height: size,
+                    width: size * 6 / 4,
                     backgroundColor: color
                 }
             }
@@ -41,8 +41,8 @@ export const populateShapesData = (size) => {
                 name: 'oval',
                 color,
                 style: {
-                    height: size * 3 / 4,
-                    width: size,
+                    height: size,
+                    width: size * 5 / 4,
                     backgroundColor: color,
                     borderRadius: '50%'
                 }
