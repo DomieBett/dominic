@@ -3,26 +3,62 @@ import { Component } from 'react';
 import SelectTheShapeChoice from './SelectTheShapeChoice';
 
 class SelectTheShapeChoices extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onShapeSelect = this.onShapeSelect.bind(this);
+    }
+
+    onShapeSelect(e, choice) {
+        e.preventDefault();
+
+        const correctChoice = this.props.correctChoice;
+
+        if (choice === correctChoice) {
+            console.log('That is correct', correctChoice.color, choice.color);
+        } else {
+            console.log('That is wrong', correctChoice.color, choice.color);
+        }
+    }
+
     generateShapeChoices() {
-        const currentShapePosition = Math.floor(Math.random() * 4);
-        const letters = ['a', 'b', 'c', 'd'];
+        const numberOfChoices = 4;
 
-        return [0, 1, 2, 3].map((position) => {
-            let shape = (position === currentShapePosition)
-                ? this.props.currentShape
-                : this.props.getRandomShape()
+        const correctShapeIndex = Math.floor(Math.random() * numberOfChoices);
 
-            if (position === currentShapePosition) {
-                shape = this.props.currentShape;
-            } else {
-                shape = this.props.getRandomShape();
+        const choices = this.generateUniqueWrongChoices(this.props.correctChoice, numberOfChoices - 1);
+
+        choices.splice(correctShapeIndex, 0, this.props.correctChoice);
+
+        return choices;
+    }
+
+    generateUniqueWrongChoices(correctChoice, quantity) {
+        let numberOfShapes = quantity;
+        let shapes = [];
+        let colorsToExclude = [];
+        let shapesToExclude = [];
+
+        colorsToExclude.push(correctChoice.color);
+        shapesToExclude.push(correctChoice.name);
+
+        while (numberOfShapes > 0) {
+            let randomShape = this.props.getRandomShape();
+            let shouldExcludeShape = shapesToExclude.indexOf(randomShape.name) !== -1
+                || colorsToExclude.indexOf(randomShape.color) !== -1
+
+            if (shouldExcludeShape) {
+                continue;
             }
 
-            return {
-                letter: letters[position],
-                shape
-            }
-        });
+            shapes.push(randomShape);
+            colorsToExclude.push(randomShape.color);
+            shapesToExclude.push(randomShape.name);
+
+            numberOfShapes--;
+        }
+
+        return shapes;
     }
 
     render() {
@@ -31,8 +67,13 @@ class SelectTheShapeChoices extends Component {
         return (
             <div className="SelectTheShapeChoices">
                 {
-                    shapeChoices.map((choice) => {
-                        return <SelectTheShapeChoice letter={choice.letter} choice={choice.shape}></SelectTheShapeChoice>
+                    shapeChoices.map((choice, index) => {
+                        return <SelectTheShapeChoice
+                            key={index}
+                            index={index}
+                            choice={choice}
+                            onShapeSelect={this.onShapeSelect}>
+                        </SelectTheShapeChoice>
                     })
                 }
             </div>

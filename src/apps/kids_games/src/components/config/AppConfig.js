@@ -1,7 +1,7 @@
 import React from 'react';
 import './AppConfig.css'
-import FocusModeConfig from './configElements/FocusModeConfig';
-import SettingsConfig from './configElements/SettingsConfig';
+// import FocusModeConfig from './configElements/FocusModeConfig';
+// import SettingsConfig from './configElements/SettingsConfig';
 import SoundConfig from './configElements/SoundConfig';
 import { Storage } from './../../utils/Storage';
 

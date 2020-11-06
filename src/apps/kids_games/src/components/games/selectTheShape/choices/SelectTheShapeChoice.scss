@@ -1,4 +1,18 @@
 .SelectTheShapeChoice {
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+
+    &.triangle {
+        span {
+            width: 100px;
+            margin-left: -80px;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05)
+    }
+
     span {
         position: absolute;
         top: -50px;

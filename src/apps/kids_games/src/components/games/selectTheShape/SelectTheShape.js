@@ -2,7 +2,6 @@ import React from 'react';
 import { populateShapesData } from '../../../data/ShapesData';
 import { getRandomColor } from '../../../utils/Color';
 import { capitalizeFirstLetter } from '../../../utils/Text';
-import ComingSoon from '../../shared/ComingSoon';
 import SelectTheShapeChoices from './choices/SelectTheShapeChoices';
 import SelectTheShapePrompt from './prompt/SelectTheShapePrompt';
 import './SelectTheShape.scss';
@@ -39,7 +38,7 @@ class SelectTheShape extends React.Component {
                 </SelectTheShapePrompt>
 
                 <SelectTheShapeChoices
-                    currentShape={this.state.currentShape}
+                    correctChoice={this.state.currentShape}
                     getRandomShape={this.getRandomShape}>
                 </SelectTheShapeChoices>
             </div>
