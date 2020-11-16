@@ -15,6 +15,17 @@ export class Speech {
         const message = new SpeechSynthesisUtterance();
         message.text = text;
 
-        return window.speechSynthesis.speak(message);
+        window.speechSynthesis.speak(message);
+
+        return message;
+    }
+
+    /**
+     * After speech ends, perform the callback operation
+     */
+    static speakThen(text, callback, queueSpeech = false) {
+        const spoken = Speech.speak(text, queueSpeech);
+
+        return spoken ? spoken.addEventListener('end', callback) : callback();
     }
 }
